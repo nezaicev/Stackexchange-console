@@ -113,7 +113,7 @@ def main():
     try:
         response = requests.get(URL_SO_SEARCH, params=params)
         questions = response.json()
-        if questions:
+        if questions.get('items'):
             fill_db(questions, conn, cursor)
         else:
             print('Not data')
